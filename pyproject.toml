@@ -1,0 +1,9 @@
+[project]
+name = "tokenizer"
+version = "0.0.1"
+description = "karpathy exercise solution"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "regex>=2025.10.23",
+]

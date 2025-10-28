@@ -1,23 +1,6 @@
 # This exercise is from the Karpathy's minbpe repository: https://github.com/karpathy/minbpe
 import regex as re
-
-def get_stats(ids, counts=None):
-    counts = {} if counts is None else counts
-    for pair in zip(ids, ids[1:]): # iterate consecutive elements
-        counts[pair] = counts.get(pair, 0) + 1
-    return counts
-
-def merge(ids, pair, idx):
-  newids = []
-  i = 0
-  while i < len(ids):
-    if i < len(ids) - 1 and ids[i] == pair[0] and ids[i+1] == pair[1]:
-      newids.append(idx)
-      i+=2
-    else:
-      newids.append(ids[i])
-      i += 1
-  return newids
+from utils import get_stats, merge
 
 GPT4_SPLIT_PATTERN = r"""'(?i:[sdmt]|ll|ve|re)|[^\r\n\p{L}\p{N}]?+\p{L}+|\p{N}{1,3}| ?[^\s\p{L}\p{N}]++[\r\n]*|\s*[\r\n]|\s+(?!\S)|\s+"""
 
